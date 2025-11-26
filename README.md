@@ -1,4 +1,4 @@
-# TRUDAS Laravel | V2
+# SAMUDAS
 ## Installation
 1. Download or Clone this repository
 ```bash
