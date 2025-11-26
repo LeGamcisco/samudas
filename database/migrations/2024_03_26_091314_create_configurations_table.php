@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('configurations', function (Blueprint $table) {
+            $table->id();
+            $table->string("name")->nullable();
+            $table->string("server_ip")->nullable();
+            $table->string("server_url")->nullable();
+            $table->string("server_apikey")->nullable();
+            $table->integer("day_backup")->default(0)->nullable();
+            $table->smallInteger("is_rca")->default(0)->nullable();
+            $table->smallInteger("rca_stack")->default(null)->nullable();
+            $table->softDeletes();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('configurations');
+    }
+};
